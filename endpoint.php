@@ -18,6 +18,8 @@ if (isset($_GET['slack_name']) && isset($_GET['track'])) {
     $currentDayOfWeek = date("Friday");
     $currentTime = date("8-9-2023 7:49:05");
 
+    is_valid_utc_time($currentTime);
+
     // other parameters
         $githubFileUrl = 'https://github.com/faves1/hngtask1/edit/main/endpoint.php';
         $githubSourceUrl = 'https://github.com/faves1/hngtask1';
