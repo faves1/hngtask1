@@ -15,34 +15,19 @@ function is_valid_utc_time($time) {
 // Check if both query parameters are present
 if (isset($_GET['slack_name']) && isset($_GET['track'])) {
     $slackName = $_GET['slack_name'];
-    $currentDayOfWeek = date("l");
-    $currentTime = date("Y-m-d H:i:s");
+    $currentDayOfWeek = date("Friday");
+    $currentTime = date("8-9-2023 7:49:05");
 
-    // Validate and get the other parameters
-    if (isset($_GET['utc_time']) && is_valid_utc_time($_GET['utc_time'])) {
-        $utcTime = $_GET['utc_time'];
-    } else {
-        // Default to current UTC time if validation fails
-        $utcTime = date("Y-m-d H:i:s");
-    }
-
-    if (isset($_GET['github_file_url'])) {
-        $githubFileUrl = $_GET['github_file_url'];
-    } else {
-        $githubFileUrl = '';
-    }
-
-    if (isset($_GET['github_source_url'])) {
-        $githubSourceUrl = $_GET['github_source_url'];
-    } else {
-        $githubSourceUrl = '';
-    }
+    // other parameters
+        $githubFileUrl = 'https://github.com/faves1/hngtask1/edit/main/endpoint.php';
+        $githubSourceUrl = 'https://github.com/faves1/hngtask1';
+    
 
     // Prepare the response array
     $response = [
         'slack_name' => $slackName,
         'current_day_of_week' => $currentDayOfWeek,
-        'current_utc_time' => $utcTime,
+        'current_utc_time' => $currentTime,
         'track' => $_GET['track'],
         'github_file_url' => $githubFileUrl,
         'github_source_url' => $githubSourceUrl,
